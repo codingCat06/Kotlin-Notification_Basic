@@ -9,20 +9,20 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
 ## 3. import
-### 1) Notification 필수
+###   1) Notification 필수
     import android.app.NotificationChannel
     import android.app.NotificationManager
     import androidx.core.app.NotificationCompat
     import android.os.Build
 
-### 2) Notification Attribute 부과 설정용
+###   2) Notification Attribute 부과 설정용
     import android.graphics.Color
     import android.media.AudioAttributes
     import android.media.RingtoneManager
     import android.net.Uri
     import android.nfc.Tag
 
-### 3) Others..
+###   3) Others..
     import com.gun0912.tedpermission.PermissionBuilder
     import com.gun0912.tedpermission.PermissionListener
     import com.gun0912.tedpermission.normal.TedPermission
