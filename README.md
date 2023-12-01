@@ -5,8 +5,10 @@
         ....
     }
 
+
 ## 2. manifests
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
 
 ## 3. import
 ###   1) Notification 필수
@@ -15,12 +17,14 @@
     import androidx.core.app.NotificationCompat
     import android.os.Build
 
+
 ###   2) Notification Attribute 부과 설정용
     import android.graphics.Color
     import android.media.AudioAttributes
     import android.media.RingtoneManager
     import android.net.Uri
     import android.nfc.Tag
+
 
 ###   3) Others..
     import com.gun0912.tedpermission.PermissionBuilder
@@ -36,6 +40,8 @@
 #### 아래 코드를 통해 화면에 보이는 앱 배너 알림이 왔다는 표시가 뜸 ( ex: 카톡 아이콘 옆에 숫자... )
     channel.SetShowBadge( Boolean )
 
+
+
 ## 5. Attribution ( 추가 설정 )
 
 #### 1) RingtoneManager
@@ -49,6 +55,7 @@
             .setUsage(AudioAttributes.USAGE_ALARM)
             .build()
 
+
 #### 2) Channel에 Attribute 적용하기
         channel.setSound(uri, audioAttributes) // <- Setting Audio
         channel.enableLights(true) // <- Light
@@ -56,12 +63,14 @@
         channel.enableVibration(true) // <- Vibration Boolean
         channel.vibrationPattern = longArrayOf(100, 200, 100, 200) // <- Setting Vibration
 
+
 ## ※ 추가 설명
 #### manager는 SystemService를 관리하기 위함으로 아래에서 사용하는 서비스는 Notification이다.
 #### 그리고 사용하는 Manager 또한 NotificationManger이므로 아래와 같이 manager를 선언한다.
 #### builder의 경우 SysteamService를 화면상에 나타내는 도구로 NotificationCompat.Builder를 사용한다.
     val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
     val builder: NotificationCompat.Builder
+
 
 ## 채널 생성 코드
     val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
@@ -90,12 +99,15 @@
         builder = NotificationCompat.Builder(this)
     }
 
+
 #### 참고 사항
 ##### 위 코드에서 else 구문을 사용하여 NotificationCompat.Builder 함수를 다르게 사용하였다.  낮은 버전에서는 Channel을 사용하지 않고 높은 버전에서 Channel을 사용하기 때문에 분류해주기 위함이다.
 ##### 왠만하면 높은 버전을 사용하니 아래 구문은 필요없다.
 
 
+
 ## 알림 생성 코드
+
 ### 참고용 링크
 #### https://developer.android.com/develop/ui/views/notifications?hl=ko 
 #### https://developer.android.com/develop/ui/views/notifications/build-notification?hl=ko
