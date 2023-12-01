@@ -48,9 +48,22 @@
             .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
             .setUsage(AudioAttributes.USAGE_ALARM)
             .build()
-    
 
-### 전체 코드
+#### 2) Channel에 Attribute 적용하기
+        channel.setSound(uri, audioAttributes) // <- Setting Audio
+        channel.enableLights(true) // <- Light
+        channel.lightColor = Color.RED // <- Light Color
+        channel.enableVibration(true) // <- Vibration Boolean
+        channel.vibrationPattern = longArrayOf(100, 200, 100, 200) // <- Setting Vibration
+
+## ※ 추가 설명
+#### manager는 SystemService를 관리하기 위함으로 아래에서 사용하는 서비스는 Notification이다.
+#### 그리고 사용하는 Manager 또한 NotificationManger이므로 아래와 같이 manager를 선언한다.
+#### builder의 경우 SysteamService를 화면상에 나타내는 도구로 NotificationCompat.Builder를 사용한다.
+    val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+    val builder: NotificationCompat.Builder
+
+## 채널 생성 코드
     val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
     val builder: NotificationCompat.Builder
 
@@ -76,3 +89,20 @@
     } else {
         builder = NotificationCompat.Builder(this)
     }
+
+#### 참고 사항
+##### 위 코드에서 else 구문을 사용하여 NotificationCompat.Builder 함수를 다르게 사용하였다.  낮은 버전에서는 Channel을 사용하지 않고 높은 버전에서 Channel을 사용하기 때문에 분류해주기 위함이다.
+##### 왠만하면 높은 버전을 사용하니 아래 구문은 필요없다.
+
+
+## 알림 생성 코드
+### 참고용 링크
+#### https://developer.android.com/develop/ui/views/notifications?hl=ko 
+#### https://developer.android.com/develop/ui/views/notifications/build-notification?hl=ko
+  
+### manager.notifiy(channel_id_number, builder.build()) 로 사용하며 channel_id_number는 딱히 상관 없음;;
+        builder.setSmallIcon(android.R.drawable.ic_notification_overlay)
+        builder.setWhen(System.currentTimeMillis())
+        builder.setContentTitle("Content")
+        builder.setContentText("Text")
+        manager.notify(12, builder.build())
