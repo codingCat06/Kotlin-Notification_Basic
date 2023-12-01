@@ -112,7 +112,7 @@
 #### https://developer.android.com/develop/ui/views/notifications?hl=ko 
 #### https://developer.android.com/develop/ui/views/notifications/build-notification?hl=ko
   
-### manager.notifiy(channel_id_number, builder.build()) 로 사용하며 channel_id_number는 딱히 상관 없음;;
+##### manager.notifiy(channel_id_number, builder.build()) 로 사용하며 channel_id_number는 딱히 상관 없음;;
         builder.setSmallIcon(android.R.drawable.ic_notification_overlay)
         builder.setWhen(System.currentTimeMillis())
         builder.setContentTitle("Content")
