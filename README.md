@@ -109,6 +109,7 @@
 ## 알림 생성 코드
 
 ### 참고용 링크
+#### https://developer.android.com/develop/ui/views/notifications/channels?hl=ko << 중요!
 #### https://developer.android.com/develop/ui/views/notifications?hl=ko 
 #### https://developer.android.com/develop/ui/views/notifications/build-notification?hl=ko
   
