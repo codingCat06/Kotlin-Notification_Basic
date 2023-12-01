@@ -120,6 +120,6 @@
         manager.notify(12, builder.build())
 
 ## 그 밖에도 다른 Attribute들...
-### manager.cancel( channel_id_number ) -> 알림 취소
-### builder.setAutoCancel( false ) -> 알림 눌러도 사라지지 않음
-### builder.setOngoing( true ) -> 알림을 스와이프 해도 사라지지 않음
+#### manager.cancel( channel_id_number ) -> 알림 취소
+#### builder.setAutoCancel( false ) -> 알림 눌러도 사라지지 않음
+#### builder.setOngoing( true ) -> 알림을 스와이프 해도 사라지지 않음
